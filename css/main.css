@@ -1,0 +1,15 @@
+h1 {
+	text-align: center;
+	font-family: 'Vast Shadow', cursive;
+	color: rgba(255, 169, 73, 1);
+	text-transform: uppercase;
+	font-size: 2.5em;
+	margin: auto 0;
+}
+
+.dog {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}

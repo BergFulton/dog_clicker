@@ -2,47 +2,42 @@ $(document).ready(function() {
 
 	var dogStuff = {
 		dogs: [{
-			'name': 'Walter',
+			'name': 'Ralph',
 			'imgPath': 'img/basset_hound.jpg'
 		},
 		{
-			'name': 'Shadow',
+			'name': 'Blorps & Co.',
 			'imgPath': 'img/two_basset_hounds.jpg'
 		}
 		]
 	}
 
+	// for each of the dogs, build their containers & set up their markup
+	$.each(dogStuff.dogs, function(i, dog) {
+		var $dogContainer = $('<div class="dog-container" />');
+		var $dogName = $('<h3 class="dog-name" />');
+		var $dogImage = $('<img class="dog" />');
+		var $clickContainer = $('<div class="clicks" />');
+		var $clickText = $('<p>You have clicked the dog:</p>');
+		var $clickCounterContainer = $('<p class="click-text" />');
+		
+		// put the markup in the right place on the page
+		$dogContainer.appendTo('.dog-containers-group');
+		$dogName.text(dog.name).appendTo($dogContainer);
+		$dogImage.attr('src', dog.imgPath).appendTo($dogContainer);
 
-	var $dogNameEl = $('.dog-name');
-	for (var i = 0, len = dogStuff.dogs.length; i < len; i++) {
-		$dogNameEl.text(dogStuff.dogs[i].name);
+		// build the click counters
+		$clickContainer.appendTo($dogContainer);
+		$clickText.appendTo($clickContainer);
+		$clickCounterContainer.appendTo($clickContainer);
+	});
 
-		var $myDogContainer = $('<div class="dog-container" />');
-		var $myDogName = $('<h3 class="dog-name">' + dogStuff.dogs[i].name + '</h3>');
-		$myDogContainer.insertBefore('footer');
-		$myDogName.appendTo('.dog-container');
-	}
+    var increment = function() {
+    	var $clickTextEl = $(this).next().find(".click-text");
+        $clickTextEl.text(function(i, oldval) {
+            return ++oldval;
+        });
+    }
 
-	// //Building JS to append images to the div
-	// var HTMLdogPics = '<img src="%data%" class="dogpic">';
-	// var display = function() {
-	// 	for (var i = 0, len = dogStuff.dogs.length; i < len; i++) {
-	// 		var formattedDogPic = HTMLdogPics.replace('%data%', dogStuff.dogs[i].imgPath);
- //        	$('#dog-container').append(formattedDogPic);
- //        }
- //    };
- //    display();
-
-
-
-    // var increment = function() {
-    // 	var $clickTextEl = $(this).next().find(".click_text");
-    //     $clickTextEl.text(function(i, oldval) {
-    //         return ++oldval;
-    //     });
-    // }
-
-    // $(".dog").on('click', increment);
+    $(".dog").on('click', increment);
 });
-
-//for (var i = 0, len = work.jobs.length; i < len; i++) {

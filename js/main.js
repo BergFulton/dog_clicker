@@ -8,6 +8,18 @@ $(document).ready(function() {
 		{
 			'name': 'Blorps & Co.',
 			'imgPath': 'img/two_basset_hounds.jpg'
+		},
+		{
+			'name': 'Walter',
+			'imgPath': 'img/walt_couch.jpg'
+		},
+		{
+			'name': 'Shadow',
+			'imgPath': 'img/shadow.jpg'
+		},
+		{
+			'name': 'Buddy',
+			'imgPath': 'img/buddy.jpg'
 		}
 		]
 	}

@@ -28,15 +28,20 @@ $(document).ready(function() {
 	$.each(dogStuff.dogs, function(i, dog) {
 		var $dogContainer = $('<div class="dog-container" />');
 		var $dogName = $('<h3 class="dog-name" />');
+		var $dogUL = $('<ul class="dog-ul" />');
+		var $dogList = $('<li class="dog-names-list" />')
 		var $dogImage = $('<img class="dog" />');
 		var $clickContainer = $('<div class="clicks" />');
 		var $clickText = $('<p>You have clicked the dog:</p>');
 		var $clickCounterContainer = $('<p class="click-text" />');
+
 		
 		// put the markup in the right place on the page
 		$dogContainer.appendTo('.dog-containers-group');
-		$dogName.text(dog.name).appendTo($dogContainer);
+		$dogName.text(dog.name).appendTo($dogContainer, '.dog-ul');
 		$dogImage.attr('src', dog.imgPath).appendTo($dogContainer);
+		$dogUL.appendTo('.dog-names-list');
+		$dogList.text(dog.name).appendTo('.dog-names-list');
 
 		// build the click counters
 		$clickContainer.appendTo($dogContainer);

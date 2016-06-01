@@ -28,26 +28,34 @@ $(document).ready(function() {
 	$.each(dogStuff.dogs, function(i, dog) {
 		var $dogContainer = $('<div class="dog-container" />');
 		var $dogName = $('<h3 class="dog-name" />');
-		var $dogUL = $('<ul class="dog-ul" />');
-		var $dogList = $('<li class="dog-names-list" />')
+		var $dogUL = $('.dog-ul');
+		var $dogNameItem = $('<li class="dog-name-item" />');
 		var $dogImage = $('<img class="dog" />');
+		var $toggleWrapper = $('<div class="toggle-wrapper" />');
 		var $clickContainer = $('<div class="clicks" />');
 		var $clickText = $('<p>You have clicked the dog:</p>');
 		var $clickCounterContainer = $('<p class="click-text" />');
-
 		
 		// put the markup in the right place on the page
 		$dogContainer.appendTo('.dog-containers-group');
-		$dogName.text(dog.name).appendTo($dogContainer, '.dog-ul');
-		$dogImage.attr('src', dog.imgPath).appendTo($dogContainer);
-		$dogUL.appendTo('.dog-names-list');
-		$dogList.text(dog.name).appendTo('.dog-names-list');
+		$dogName.text(dog.name).appendTo($dogNameItem);
+		$toggleWrapper.appendTo($dogNameItem);
+		$dogImage.attr('src', dog.imgPath).appendTo($toggleWrapper);
+		$dogNameItem.appendTo($dogUL);
 
-		// build the click counters
-		$clickContainer.appendTo($dogContainer);
+		// // build the click counters
+		$clickContainer.appendTo($toggleWrapper);
 		$clickText.appendTo($clickContainer);
 		$clickCounterContainer.appendTo($clickContainer);
 	});
+
+	var toggleDog = function() {
+		$('.dog-name').on('click', function(e) {
+			$(this).next().toggleClass('is-visible');
+		});
+	};
+
+	toggleDog();
 
     var increment = function() {
     	var $clickTextEl = $(this).next().find(".click-text");

@@ -73,3 +73,7 @@ p {
 .is-visible {
 	display: block;
 }
+
+li {
+	list-style: none;
+}

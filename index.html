@@ -17,14 +17,38 @@
     <h1>Welcome to Dog Clicker</h1>
     <h2>Click the dog.</h2>
     <h2>Yes. That's really the whole game.</h2>
-    <section class ="dog-name-list">
-        <ul class="dog-ul">
-        
+    <section class ="dog-names-group">
+        <ul class="dog-list">
         </ul>
-    
     </section>
 
-    <section class = "dog-view-group">
+    <section class="dog-view-group">
+        <div class="dog">
+            <h4 class="dog-name"></h4>
+            <p class="click-count"></p>
+            <img class="dog-img" src="" alt="" />
+        </div>
+    </section>
+
+    <section class="admin-view">
+        <form action="#">
+            <fieldset>
+                <div class="input-wrap">
+                    <label for="dogName">Name:</label>
+                    <input type="text" name="dogName" />
+                </div>
+                <div class="input-wrap">
+                    <label for="dogImage">Image URL:</label>
+                    <input type="text" name="dogImage" />
+                </div>
+                <div class="input-wrap">
+                    <label for="dogClicks"># of Clicks:</label>
+                    <input type="text" name="dogClicks" />
+                </div>
+            </fieldset>
+            <input type="reset" value="Cancel" />
+            <input type="submit" value="Submit" />
+        </form>
     </section>
 
     <footer>
